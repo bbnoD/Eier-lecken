@@ -1,95 +1,84 @@
-<!DOCTYPE html>
-<html lang="de">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eier lecken</title>
-    <style>
-        /* Grunddesign: Zentriert alles auf dunklem Hintergrund */
-        body, html {
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            height: 100%;
-            background-color: #121212; /* Dunkles Anthrazit */
-            color: #E0E0E0; /* Helles Grau für Text */
-            display: flex;
-            flex-direction: column;
-            justify-content: center; /* Vertikal zentrieren */
-            align-items: center; /* Horizontal zentrieren */
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            overflow: hidden; /* Verhindert Scrollbalken während der Animation */
-        }
+<style>
+    /* Grunddesign für die Ei-Variante */
+    .wrapper-egg {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: #121212; /* Dunkles Anthrazit */
+        color: #E0E0E0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        overflow: hidden;
+        position: relative;
+    }
 
-        /* Der Spruch oben */
-        .spruch-oben {
-            font-size: 6rem;
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            color: #FFD700; /* Goldgelb */
-            margin-bottom: 50px; /* Abstand zum Ei */
-            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
-            text-align: center;
-            padding: 0 20px;
-        }
+    /* Der Spruch oben */
+    .spruch-egg {
+        font-size: 6rem;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        color: #FFD700; /* Goldgelb */
+        margin-bottom: 50px;
+        text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+        text-align: center;
+        padding: 0 20px;
+    }
 
-        /* Container für das Ei, um die Animation zu steuern */
-        .ei-container {
-            font-size: 15rem; /* Riesige Größe für das Symbol */
-            cursor: pointer; /* Zeigt an, dass man draufklicken könnte */
-            position: relative;
-            
-            /* Kombiniert zwei Animationen: Wackeln und Hüpfen */
-            animation: 
-                wackeln 1s infinite ease-in-out alternate,
-                huepfen 2s infinite ease-in-out;
-            
-            /* Verbessert die Darstellung auf Mobilgeräten */
-            -webkit-user-select: none;
-            user-select: none;
-        }
+    /* Container für das Ei */
+    .ei-container {
+        font-size: 15rem;
+        cursor: pointer;
+        position: relative;
+        /* Animationen: Wackeln und Hüpfen */
+        animation: 
+            wackeln-egg 1s infinite ease-in-out alternate,
+            huepfen-egg 2s infinite ease-in-out;
+        -webkit-user-select: none;
+        user-select: none;
+    }
 
-        /* Wenn man mit der Maus drüberfährt, wird das Ei rot (als Warnung) */
-        .ei-container:hover {
-            color: #FF4500; /* OrangeRed */
-            filter: drop-shadow(0 0 20px rgba(255, 69, 0, 0.8));
-        }
+    .ei-container:hover {
+        color: #FF4500;
+        filter: drop-shadow(0 0 20px rgba(255, 69, 0, 0.8));
+    }
 
-        /* ANIMATION 1: Wackeln (Rotation um die eigene Achse) */
-        @keyframes wackeln {
-            0% { transform: rotate(-5deg); }
-            100% { transform: rotate(5deg); }
-        }
+    /* Animationen speziell benannt, um Konflikte zu vermeiden */
+    @keyframes wackeln-egg {
+        0% { transform: rotate(-5deg); }
+        100% { transform: rotate(5deg); }
+    }
 
-        /* ANIMATION 2: Hüpfen (Vertikale Bewegung) */
-        @keyframes huepfen {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-20px); } /* Hüpft leicht hoch */
-        }
+    @keyframes huepfen-egg {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-20px); }
+    }
 
-        /* Der kleine Spalt unten (Copyright) */
-        .footer-stamp {
-            position: absolute;
-            bottom: 20px;
-            font-size: 0.8rem;
-            color: #555;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            border-top: 1px solid #333;
-            padding-top: 10px;
-        }
+    /* Der kleine Spalt unten */
+    .footer-egg {
+        position: absolute;
+        bottom: 20px;
+        font-size: 0.8rem;
+        color: #555;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        border-top: 1px solid #333;
+        padding-top: 10px;
+    }
 
-        /* Anpassung für kleinere Bildschirme (Handys) */
-        @media (max-width: 600px) {
-            .spruch-oben { font-size: 1.8rem; }
-            .ei-container { font-size: 10rem; }
-        }
-    </style>
-</head>
-<body>
+    /* Mobile Anpassung */
+    @media (max-width: 600px) {
+        .spruch-egg { font-size: 3rem; }
+        .ei-container { font-size: 10rem; }
+    }
+</style>
 
-    <div class="spruch-oben">
+<div class="wrapper-egg">
+    <div class="spruch-egg">
         Eier lecken
     </div>
 
@@ -97,9 +86,7 @@
         🥚
     </div>
 
-    <div class="footer-stamp">
+    <div class="footer-egg">
         © ALLE RECHTE VORBEHALTEN LG NIKO
     </div>
-
-</body>
-</html>
+</div>
