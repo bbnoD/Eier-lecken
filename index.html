@@ -1,34 +1,16 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Wird geladen...</title>
-    <script>
-        // Liste deiner verfügbaren Seiten
-        const seiten = [
-            'eier-lecken.html',
+<div id="content">Wird geladen...</div>
+
+<script>
+    const seiten = [ 'eier-lecken.html',
             'eier.html',
             'lecken.html',
             'leck-eier.html',
-            'lecki-eier.html',
+            'lecki-eier.html'];
+    const wahl = seiten[Math.floor(Math.random() * seiten.length)];
 
-        ];
-
-        // Zufälligen Index auswählen
-        const zufallsIndex = Math.floor(Math.random() * seiten.length);
-        
-        // Ziel-Seite auswählen
-        const zielSeite = seiten[zufallsIndex];
-
-        // Weiterleitung ausführen (ersetzt den Verlaufseintrag, damit "Zurück" nicht in der Schleife landet)
-        window.location.replace(zielSeite);
-    </script>
-    
-    <!-- Falls JavaScript deaktiviert ist, zeigen wir einen Link an -->
-    <noscript>
-        <meta http-equiv="refresh" content="0; url=index1.html">
-    </noscript>
-</head>
-<body style="background-color: #000;">
-    <!-- Seite bleibt schwarz oder zeigt einen Lade-Spinner während des Sprungs -->
-</body>
-</html>
+    // Lädt den Inhalt der zufälligen Datei in das 'content' div
+    fetch(wahl)
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('content').innerHTML = data;
+        });
