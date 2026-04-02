@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neon Spruch</title>
+    <style>
+        /* Importiert eine futuristische Schriftart von Google Fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@900&display=swap');
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #050505; /* Fast komplett schwarz */
+            /* Leichter radialer Verlauf für mehr Tiefe */
+            background-image: radial-gradient(circle at center, #151515 0%, #000000 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            font-family: 'Orbitron', sans-serif;
+            overflow: hidden;
+        }
+
+        /* Container, der den Text exakt in der Mitte zentriert */
+        .text-container {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            line-height: 1.2;
+        }
+
+        /* Styling für das erste Wort (Cyan) */
+        .wort {
+            font-size: 15vw;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            color: transparent; /* Die Füllung ist unsichtbar... */
+            -webkit-text-stroke: 2px #00ffff; /* ...nur die Kontur leuchtet */
+            animation: pulse-cyan 2s infinite alternate; /* Pulsierende Animation */
+        }
+
+        /* Styling für das zweite Wort (Magenta) */
+        .wort:nth-child(2) {
+            -webkit-text-stroke: 2px #ff00ff;
+            animation: pulse-magenta 2.5s infinite alternate;
+        }
+
+        /* Die Animationen für das Neon-Leuchten (Glow-Effekt) */
+        @keyframes pulse-cyan {
+            0% { text-shadow: 0 0 10px rgba(0, 255, 255, 0.2); }
+            100% { text-shadow: 0 0 20px rgba(0, 255, 255, 0.8), 0 0 40px rgba(0, 255, 255, 0.5); }
+        }
+
+        @keyframes pulse-magenta {
+            0% { text-shadow: 0 0 10px rgba(255, 0, 255, 0.2); }
+            100% { text-shadow: 0 0 20px rgba(255, 0, 255, 0.8), 0 0 40px rgba(255, 0, 255, 0.5); }
+        }
+
+        /* Der Spalt ganz unten für die Rechte */
+        .footer {
+            margin-bottom: 30px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.85rem;
+            color: #444; /* Sehr dezent und dunkel */
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            border-top: 1px solid #222;
+            padding-top: 15px;
+            width: 80%;
+            text-align: center;
+            z-index: 10;
+        }
+
+        /* Anpassung für Smartphones */
+        @media (max-width: 768px) {
+            .wort { font-size: 20vw; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="text-container">
+        <span class="wort">EIER</span>
+        <span class="wort">LECKEN</span>
+    </div>
+
+    <div class="footer">
+        © Alle Rechte vorbehalten LG Niko
+    </div>
+
+</body>
+</html>
