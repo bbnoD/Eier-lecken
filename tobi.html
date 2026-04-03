@@ -1,1 +1,62 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eier lecken</title>
+    <style>
+        /* Entfernt alle Standard-Abstände des Browsers */
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #000; /* Schwarzer Hintergrund als Basis */
+            overflow: hidden; /* Verhindert Scrollbalken beim Laden */
+        }
 
+        /* Der Container füllt den kompletten Viewport aus */
+        #content {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="content">Wird geladen...</div>
+
+    <script>
+        const seiten = [ 
+            'eier-lecken.html',
+            'eier.html',
+            'lecken.html',
+            'leck-eier.html',
+            'lecki-eier.html'
+        ];
+        
+        // Zufällige Auswahl
+        const wahl = seiten[Math.floor(Math.random() * seiten.length)];
+
+        // Lädt den Inhalt der zufälligen Datei in das 'content' div
+        fetch(wahl)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Netzwerk-Antwort war nicht ok');
+                }
+                return response.text();
+            })
+            .then(data => {
+                document.getElementById('content').innerHTML = data;
+            })
+            .catch(error => {
+                console.error('Fehler beim Laden der Seite:', error);
+                document.getElementById('content').innerHTML = 'Fehler beim Laden.';
+            });
+    </script>
+
+</body>
+</html>
